@@ -8,7 +8,8 @@ const TECHNOLOGY_MAPPING: Record<string, string> = {
   'react': 'React',
   'nodejs': 'Node.js',
   'html-css': 'HTML/CSS',
-  'typescript': 'TypeScript'
+  'typescript': 'TypeScript',
+  'graphql': 'GraphQL'
 };
 
 export async function loadFlashcardData(): Promise<FlashcardData> {
@@ -21,7 +22,8 @@ export async function loadFlashcardData(): Promise<FlashcardData> {
     'react.json',
     'nodejs.json',
     'html-css.json',
-    'typescript.json'
+    'typescript.json',
+    'GraphQL.json'
   ];
   
   // Determine base path based on environment
@@ -37,7 +39,7 @@ export async function loadFlashcardData(): Promise<FlashcardData> {
           return null;
         }
         const questions = await response.json();
-        const technologyKey = filename.replace('.json', '');
+        const technologyKey = filename.replace('.json', '').toLowerCase();
         const technologyName = TECHNOLOGY_MAPPING[technologyKey] || technologyKey;
         return { technologyName, questions };
       } catch (error) {

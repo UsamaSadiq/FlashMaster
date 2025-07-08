@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+import { shuffleArray } from "@/lib/flashcard-data";
 
 interface FlashcardDisplayProps {
   technology: string;
@@ -20,6 +21,11 @@ export default function FlashcardDisplay({
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
+
+  // Shuffle answer options each time the question changes
+  const shuffledAnswers = useMemo(() => {
+    return shuffleArray(Object.keys(answers));
+  }, [answers, question]); // Include question as dependency to reshuffle when question changes
 
   useEffect(() => {
     setSelectedAnswer(null);
@@ -65,7 +71,7 @@ export default function FlashcardDisplay({
         </div>
         
         <div className="space-y-4 px-4">
-          {Object.keys(answers).map((answer) => (
+          {shuffledAnswers.map((answer) => (
             <Button
               key={answer}
               variant="ghost"
