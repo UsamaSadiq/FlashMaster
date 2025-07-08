@@ -20,6 +20,14 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/"),
     emptyOutDir: true,
+    target: 'es2015', // ensures older browser compatibility
+    assetsInlineLimit: Infinity, // ensures everything is inlined
+    rollupOptions: {
+      output: {
+        inlineDynamicImports: true,
+        manualChunks: undefined,
+      }
+    }
   },
   server: {
     fs: {

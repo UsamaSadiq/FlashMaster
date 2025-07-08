@@ -175,7 +175,17 @@ var vite_config_default = defineConfig({
   root: path.resolve(import.meta.dirname, "client"),
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/"),
-    emptyOutDir: true
+    emptyOutDir: true,
+    target: "es2015",
+    // ensures older browser compatibility
+    assetsInlineLimit: Infinity,
+    // ensures everything is inlined
+    rollupOptions: {
+      output: {
+        inlineDynamicImports: true,
+        manualChunks: void 0
+      }
+    }
   },
   server: {
     fs: {
