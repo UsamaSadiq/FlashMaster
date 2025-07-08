@@ -1,0 +1,78 @@
+Create a complete HTML/CSS/JavaScript program that functions as a robust flashcard-based learning tool meeting the following specifications:
+
+## 1. Multi-Technology Support
+
+* Structure your JSON data file (`flashcards.json`) to support multiple technologies or languages, for example:
+
+```json
+{
+  "Python": {
+    "q1": {"answer 1": "right", "answer 2": "wrong", "answer 3": "wrong"},
+    "q2": {"answer 1": "wrong", "answer 2": "right", "answer 3": "wrong"}
+  },
+  "JavaScript": {
+    "q1": {"answer 1": "wrong", "answer 2": "right", "answer 3": "wrong"},
+    "q2": {"answer 1": "wrong", "answer 2": "wrong", "answer 3": "right"}
+  }
+}
+```
+
+## 2. Homepage with Technology Selection
+
+* Display a homepage that dynamically lists available technologies based on the JSON data.
+* Upon selecting a technology, load and display the relevant flashcards for that specific technology.
+
+## 3. Flashcard Functionality
+
+* Display one flashcard at a time, each having a question and three possible answers.
+* When a user selects an answer:
+
+  * Highlight the selection in green if correct, or red if incorrect.
+  * Clearly indicate the correct answer if an incorrect one was chosen.
+  * Prevent multiple selections on the same flashcard.
+
+## 4. Navigation Enhancements
+
+* Include clearly visible "Previous" and "Next" buttons allowing continuous navigation through flashcards (wrap-around navigation).
+* Include a "Home" button on every page, providing easy navigation back to the homepage.
+* Optionally, maintain and restore the user’s position in flashcards if they return to a technology after navigating away.
+
+## 5. Shuffling Mechanism
+
+* Randomly shuffle the order of flashcards for a unique user experience on each load.
+
+## 6. User Progress Tracking
+
+* Display the current question number and total (e.g., "Question 5 of 100") for clear user feedback.
+* Optionally track and display the number of correct and incorrect responses.
+
+## 7. Responsive Design & Accessibility
+
+* Ensure the design is responsive, displaying well on mobile devices, tablets, and desktops.
+* Support keyboard navigation (left/right arrows for navigation, numbers 1–3 for selecting answers).
+* Use semantic HTML and ARIA attributes to maximize accessibility.
+
+## 8. Visual Feedback & Animations
+
+* Implement subtle animations or transitions (such as card flips or fade-ins/outs) when navigating between flashcards.
+* Provide immediate visual feedback on answer correctness clearly.
+
+## 9. Scalability for Future Data
+
+* Structure JavaScript logic to dynamically handle additional technologies without changes beyond the JSON data file.
+* Avoid hardcoding technology names in your JavaScript.
+
+## 10. User Guidance & Instructions
+
+* Include a simple and accessible "How to Use" instruction modal or dedicated instruction page available from the homepage.
+
+### Technical Structure
+
+* Organize the program using:
+
+  * `index.html`
+  * `style.css`
+  * `script.js`
+  * `flashcards.json`
+
+Ensure the program is fully self-contained without reliance on external frameworks or libraries.
