@@ -1,0 +1,41 @@
+name: Deploy Flashmaster Frontend to Portfolio
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: client
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build frontend
+        run: npm run build
+
+      - name: Deploy to portfolio repo
+        run: |
+          cd ..
+          git config --global user.name "Portfolio Manager"
+          git config --global user.email "portfolio_manager@usamasadiq.us"
+          git clone https://x-access-token:${{ secrets.GH_PAT }}@github.com/UsamaSadiq/usamasadiq.github.io.git temp-portfolio
+          rm -rf temp-portfolio/projects/flashmaster
+          mkdir -p temp-portfolio/projects/flashmaster
+          cp -r client/dist/* temp-portfolio/projects/flashmaster/
+          cd temp-portfolio
+          git add .
+          git commit -m "Deploy updated Flashmaster frontend"
+          git push
