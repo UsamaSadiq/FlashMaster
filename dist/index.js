@@ -156,12 +156,14 @@ import { createServer as createViteServer, createLogger } from "vite";
 
 // vite.config.ts
 import { defineConfig } from "vite";
+import { viteSingleFile } from "vite-plugin-singlefile";
 import react from "@vitejs/plugin-react";
 import path from "path";
 var vite_config_default = defineConfig({
   base: "/projects/flashmaster/",
   plugins: [
-    react()
+    react(),
+    viteSingleFile()
   ],
   resolve: {
     alias: {

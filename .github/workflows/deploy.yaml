@@ -34,7 +34,7 @@ jobs:
           git clone https://x-access-token:${{ secrets.GH_PAT }}@github.com/UsamaSadiq/usamasadiq.github.io.git temp-portfolio
           rm -rf temp-portfolio/projects/flashmaster
           mkdir -p temp-portfolio/projects/flashmaster
-          cp -r dist/* temp-portfolio/projects/flashmaster/
+          cp -r dist/index.html temp-portfolio/projects/flashmaster/
           cd temp-portfolio
           git add .
           git commit -m "Deploy updated Flashmaster frontend"
