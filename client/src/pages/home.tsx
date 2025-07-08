@@ -5,13 +5,15 @@ import { HelpCircle } from "lucide-react";
 import { useState } from "react";
 import TechnologyCard from "@/components/technology-card";
 import HowToUseModal from "@/components/how-to-use-modal";
+import { loadFlashcardData } from "@/lib/static-data-loader";
 import type { FlashcardData } from "@shared/schema";
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
 
   const { data: flashcardData, isLoading } = useQuery<FlashcardData>({
-    queryKey: ["/api/flashcards"],
+    queryKey: ["flashcards"],
+    queryFn: loadFlashcardData,
   });
 
   if (isLoading) {

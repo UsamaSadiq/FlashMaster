@@ -49,8 +49,10 @@ This application is configured to deploy to `usamasadiq.github.io/projects/flash
 ## Features
 
 - Interactive flashcard learning system with hash-based routing for GitHub Pages compatibility
+- Static data loading from JSON files (no backend required)
 - Multiple technology categories (HTML/CSS, JavaScript, React, TypeScript, Python, Node.js)
 - Progress tracking
 - Responsive design
 - Built with modern web technologies
 - Hash routing ensures proper navigation on GitHub Pages (routes like `#/flashcard/javascript`)
+- Fully client-side application suitable for static hosting

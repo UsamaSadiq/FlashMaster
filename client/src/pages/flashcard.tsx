@@ -10,6 +10,7 @@ import ProgressBar from "@/components/progress-bar";
 import HowToUseModal from "@/components/how-to-use-modal";
 import SuccessModal from "@/components/success-modal";
 import { useFlashcardSession } from "@/hooks/use-flashcard-session";
+import { loadFlashcardData } from "@/lib/static-data-loader";
 import type { FlashcardData } from "@shared/schema";
 
 export default function Flashcard() {
@@ -19,7 +20,8 @@ export default function Flashcard() {
   const [showModal, setShowModal] = useState(false);
 
   const { data: flashcardData, isLoading } = useQuery<FlashcardData>({
-    queryKey: ["/api/flashcards"],
+    queryKey: ["flashcards"],
+    queryFn: loadFlashcardData,
   });
 
   const {
