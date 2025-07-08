@@ -24,6 +24,7 @@ export default defineConfig({
     assetsInlineLimit: Infinity, // ensures everything is inlined
     rollupOptions: {
       output: {
+        format: 'iife',             // 👈 immediately-invoked function expression (browser-safe)
         inlineDynamicImports: true,
         manualChunks: undefined,
       }

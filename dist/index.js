@@ -182,6 +182,8 @@ var vite_config_default = defineConfig({
     // ensures everything is inlined
     rollupOptions: {
       output: {
+        format: "iife",
+        // 👈 immediately-invoked function expression (browser-safe)
         inlineDynamicImports: true,
         manualChunks: void 0
       }
