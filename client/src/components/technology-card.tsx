@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { useLocation } from "wouter";
+import { useHashLocation } from "wouter/use-hash-location";
 
 interface TechnologyCardProps {
   technology: string;
@@ -7,7 +7,7 @@ interface TechnologyCardProps {
 }
 
 export default function TechnologyCard({ technology, questionCount }: TechnologyCardProps) {
-  const [, setLocation] = useLocation();
+  const [, setLocation] = useHashLocation();
 
   const handleClick = () => {
     setLocation(`/flashcard/${encodeURIComponent(technology)}`);

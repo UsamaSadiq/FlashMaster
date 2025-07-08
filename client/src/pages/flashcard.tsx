@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight, Home, HelpCircle } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
-import { useLocation } from "wouter";
+import { useHashLocation } from "wouter/use-hash-location";
 import FlashcardDisplay from "@/components/flashcard-display";
 import ProgressBar from "@/components/progress-bar";
 import HowToUseModal from "@/components/how-to-use-modal";
@@ -15,7 +15,7 @@ import type { FlashcardData } from "@shared/schema";
 export default function Flashcard() {
   const { technology: rawTechnology } = useParams<{ technology: string }>();
   const technology = rawTechnology ? decodeURIComponent(rawTechnology) : "";
-  const [, setLocation] = useLocation();
+  const [, setLocation] = useHashLocation();
   const [showModal, setShowModal] = useState(false);
 
   const { data: flashcardData, isLoading } = useQuery<FlashcardData>({

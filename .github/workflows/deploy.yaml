@@ -39,5 +39,5 @@ jobs:
           cp -r dist/* temp-portfolio/projects/flashmaster/
           cd temp-portfolio
           git add .
-          git commit -m "Deploy updated Flashmaster frontend"
+          git commit -m "Deploy updated Flashmaster frontend with hash routing"
           git push
