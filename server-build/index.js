@@ -156,14 +156,12 @@ import { createServer as createViteServer, createLogger } from "vite";
 
 // vite.config.ts
 import { defineConfig } from "vite";
-import { viteSingleFile } from "vite-plugin-singlefile";
 import react from "@vitejs/plugin-react";
 import path from "path";
 var vite_config_default = defineConfig({
   base: "/projects/flashmaster/",
   plugins: [
-    react(),
-    viteSingleFile()
+    react()
   ],
   resolve: {
     alias: {
@@ -176,18 +174,8 @@ var vite_config_default = defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/"),
     emptyOutDir: true,
-    target: "es2015",
+    target: "es2015"
     // ensures older browser compatibility
-    assetsInlineLimit: Infinity,
-    // ensures everything is inlined
-    rollupOptions: {
-      output: {
-        format: "iife",
-        // 👈 immediately-invoked function expression (browser-safe)
-        inlineDynamicImports: true,
-        manualChunks: void 0
-      }
-    }
   },
   server: {
     fs: {
